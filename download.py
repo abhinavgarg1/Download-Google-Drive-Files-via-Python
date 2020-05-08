@@ -41,11 +41,6 @@ DRIVE = get_service()
 #Downloading Function
 def download_file(service, file_id, local_fd):
   """Download a Drive file's content to the local filesystem.
-  Args:
-    service: Drive API Service instance.
-    file_id: ID of the Drive file that will downloaded.
-    local_fd: io.Base or file object, the stream that the Drive file's
-        contents will be written to.
   """
   request = service.files().get_media(fileId=file_id)
   media_request = http.MediaIoBaseDownload(local_fd, request)
